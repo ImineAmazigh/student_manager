@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #define PROBATION_GPA 2.5
+#define MAX_STUDENTS 100
 
 typedef struct Student {
     int id;
-    char *name;
+    char name[50];
     int credits_completed;
     float gpa;
 } Student;
@@ -19,9 +20,67 @@ void sort_by_gpa(Student registry[], int *count);
 
 
 int main() {
+    Student registry[MAX_STUDENTS];
+    int student_count = 0;
+    int choice;
+    int id, credits, index;
+    float gpa;
+    char name[50];
+
+    do {
+        printf("\n--- MENU ---\n");
+        printf("1. Enroll Student\n");
+        printf("2. Display All Students\n");
+        printf("3. Search Student by Name\n");
+        printf("4. Drop Student (by Index)\n");
+        printf("5. Sort Registry by GPA\n");
+        printf("6. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+        getchar();
+
+        switch (choice) {
+            case 1:
+                printf("Enter ID: ");
+                scanf("%d", &id);
+                getchar();
+                printf("Enter Name: ");
+                fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = 0;
+                printf("Enter GPA: ");
+                scanf("%f", &gpa);
+                printf("Enter Credits: ");
+                scanf("%d", &credits);
+                enroll_student(registry, &student_count, id, name, gpa, credits);
+                break;
+            case 2:
+                display_all(registry, &student_count);
+                break;
+            case 3:
+                printf("Enter name: ");
+                fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = 0;
+                search_by_name(registry, &student_count, name);
+                break;
+            case 4:
+                printf("Enter index to drop: ");
+                scanf("%d", &index);
+                if (index >= 0 && index < student_count) {
+                    drop_student(registry, &student_count, index);
+                }
+                break;
+            case 5:
+                sort_by_gpa(registry, &student_count);
+                break;
+            case 6:
+                printf("Exiting...\n");
+                break;
+        }
+    } while (choice != 6);
 
     return 0;
 }
+
 Student higher_gpa(Student s1, Student s2) {
     if (s1.gpa > s2.gpa) 
     return s1;
@@ -64,7 +123,7 @@ void search_by_name(Student registry[], int *count, const char name[])
 {
     int i=0, k=0;
 
-    while (i <= *count)
+    while (i < *count)
     {
         if (strcmp(registry[i].name, name) == 0) {
             printf("[%d]\t /", k);
@@ -83,7 +142,7 @@ void drop_student(Student registry[], int *count, int index) {
     for (int i=index; i < *count - 1; i++) {
         registry[i] = registry[i + 1];
     }
-    (*count)++;
+    (*count)--;
 }
 
 //ascending order
