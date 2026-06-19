@@ -1,14 +1,51 @@
-# student_manager
-# 📘 Student Manager on Terminal using C (Currently)
-This program is made in C. It is a simple student managing system that has features listed as:
-- Finding student with higher gpa
-- Enroll Student
-- Print student card
-- Search a student by name
-- Sort student by gpa (ascending order)
-- Sorting by GPA
-<img width="348" height="449" alt="8b76f2a5f6fcb316d12f5237b1e2c6d69fe1910c" src="https://github.com/user-attachments/assets/67f64421-cdf8-4361-a125-6c7fdf92813b" />
+# 📘 Student Manager
 
-##Future Thoughts: 
-Making a Python or Javascript version with GUI
--- stay tuned :> --
+A terminal-based student management system written in C that provides essential features for managing student records efficiently.
+
+![Student Manager Demo](https://github.com/user-attachments/assets/67f64421-cdf8-4361-a125-6c7fdf92813b)
+
+## ✨ Features
+
+- 🔍 **Search Students** - Find students by name or other criteria
+- 📝 **Enroll Students** - Add new students to the system
+- 🎓 **View Student Cards** - Display detailed student information
+- ⭐ **Find Top Performers** - Identify students with higher GPA
+- 📊 **Sort by GPA** - Sort student records in ascending or descending order
+
+## 🚀 Getting Started
+
+### Prerequisites
+- C compiler (GCC, Clang, or MSVC)
+- Standard C library
+
+### Installation
+
+```bash
+git clone https://github.com/ImineAmazigh/student_manager.git
+cd student_manager
+gcc -o student_manager main.c
+```
+
+### Usage
+
+```bash
+./student_manager
+```
+
+Follow the on-screen menu to manage student records.
+
+## 🛠️ Tech Stack
+
+- **Language:** C
+- **Platform:** Terminal/Console
+
+## 🔮 Future Plans
+
+- [ ] Python version with GUI
+- [ ] JavaScript version with web interface
+- [ ] Database integration
+- [ ] Additional sorting and filtering options
+
+---
+
+**Status:** Currently in C | GUI versions coming soon! 🚀
