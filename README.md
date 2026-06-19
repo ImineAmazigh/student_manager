@@ -23,7 +23,7 @@ A terminal-based student management system written in C that provides essential 
 ```bash
 git clone https://github.com/ImineAmazigh/student_manager.git
 cd student_manager
-gcc -o student_manager main.c
+gcc -o student_manager student.c
 ```
 
 ### Usage
